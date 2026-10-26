@@ -13,14 +13,17 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script type="module" crossorigin src="./assets/index-fvAUcmtr.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Bl-SCzqU.css">
+    <script type="module" crossorigin src="./assets/index-CRl3uiDu.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BDAX8ASU.css">
   </head>
   <body class="aura-app">
 
     <!-- Atmospheric Glow & Candlelight Ambiance -->
     <div class="ambient-candle-light"></div>
     <div class="vignette-overlay"></div>
+
+    <!-- Preloaded Background Music Stream (Instant Playback) -->
+    <audio id="ambientAudio" src="./audio/hotel_veda_ambient.mp3" preload="auto" loop></audio>
 
     <!-- Navigation Header -->
     <header class="aura-header" id="auraHeader">
@@ -86,38 +89,11 @@
         <div class="video-overlay-gradient"></div>
         <div class="video-scanline-fx"></div>
 
-        <!-- Floating Interactive Ingredient Callouts (Synchronized with video) -->
-        <div class="floating-badge badge-spoon" id="badgeSpoon">
-          <div class="badge-dot"></div>
-          <div class="badge-card">
-            <span class="badge-label">01 &bull; THE TWIRL</span>
-            <h4 class="badge-title">Vedic Zafran &amp; Fork Lift</h4>
-            <p class="badge-desc">Hand-rolled golden semolina infused with sacred Kashmiri saffron uncoiling mid-air.</p>
-          </div>
-        </div>
-
-        <div class="floating-badge badge-fall" id="badgeFall">
-          <div class="badge-dot"></div>
-          <div class="badge-card">
-            <span class="badge-label">02 &bull; THE SPICE CASCADE</span>
-            <h4 class="badge-title">Makhani &amp; Masala Ballet</h4>
-            <p class="badge-desc">Velvety butter-tomato reduction, toasted kasuri methi, datterini &amp; fresh Tuscan basil.</p>
-          </div>
-        </div>
-
-        <div class="floating-badge badge-plate" id="badgePlate">
-          <div class="badge-dot"></div>
-          <div class="badge-card">
-            <span class="badge-label">03 &bull; TOUCHDOWN</span>
-            <h4 class="badge-title">Swarna Plated Masterpiece</h4>
-            <p class="badge-desc">Warm royal ceramic bowl graced with 24-month Parmigiano-Reggiano, pure desi ghee &amp; spices.</p>
-          </div>
-        </div>
-
       </div>
 
       <!-- Hero Editorial UI Overlay Content -->
       <div class="hero-editorial-overlay">
+        <!-- Left Editorial Details -->
         <div class="editorial-left">
           <div class="editorial-tagline">
             <span class="tag-line"></span>
@@ -162,6 +138,37 @@
             </div>
           </div>
         </div>
+
+        <!-- Right Side: 3 Sacred Stages Callout Badges (Visible on Both Laptop & Mobile) -->
+        <div class="editorial-badges-column" id="editorialBadges">
+          <div class="floating-badge badge-spoon" id="badgeSpoon">
+            <div class="badge-dot"></div>
+            <div class="badge-card">
+              <span class="badge-label">01 &bull; THE TWIRL</span>
+              <h4 class="badge-title">Vedic Zafran &amp; Fork Lift</h4>
+              <p class="badge-desc">Hand-rolled golden semolina infused with sacred Kashmiri saffron uncoiling mid-air.</p>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-fall" id="badgeFall">
+            <div class="badge-dot"></div>
+            <div class="badge-card">
+              <span class="badge-label">02 &bull; THE SPICE CASCADE</span>
+              <h4 class="badge-title">Makhani &amp; Masala Ballet</h4>
+              <p class="badge-desc">Velvety butter-tomato reduction, toasted kasuri methi, datterini &amp; fresh Tuscan basil.</p>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-plate" id="badgePlate">
+            <div class="badge-dot"></div>
+            <div class="badge-card">
+              <span class="badge-label">03 &bull; TOUCHDOWN</span>
+              <h4 class="badge-title">Swarna Plated Masterpiece</h4>
+              <p class="badge-desc">Warm royal ceramic bowl graced with 24-month Parmigiano-Reggiano, pure desi ghee &amp; spices.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </main>
