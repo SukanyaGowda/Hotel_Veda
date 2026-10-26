@@ -343,58 +343,24 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
-  filter: contrast(1.12) brightness(1.08) saturate(1.18);
   transform: scale(1.02);
   transition: transform 12s ease-out;
 }
 
-/* Radiant Golden Background Highlights & Aura */
-.video-golden-highlight {
-  position: absolute;
-  top: 42%;
-  left: 54%;
-  transform: translate(-50%, -50%);
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(243, 198, 35, 0.36) 0%, rgba(212, 163, 89, 0.2) 38%, transparent 70%);
-  filter: blur(48px);
-  pointer-events: none;
-  z-index: 6;
-  mix-blend-mode: screen;
-  animation: auraGlowPulse 5s infinite alternate ease-in-out;
-}
-
-.video-center-spotlight {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 56% 42%, rgba(243, 198, 35, 0.2) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 7;
-  mix-blend-mode: screen;
-}
-
-@keyframes auraGlowPulse {
-  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.7; }
-  100% { transform: translate(-50%, -50%) scale(1.22); opacity: 1; }
-}
-
-/* Gradient Lighting Over Video */
+/* Gradient Lighting Over Video (Original Clean Look) */
 .video-overlay-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(8, 6, 5, 0.88) 0%, rgba(8, 6, 5, 0.5) 45%, rgba(8, 6, 5, 0.15) 75%, rgba(8, 6, 5, 0.75) 100%),
-              linear-gradient(0deg, rgba(8, 6, 5, 0.92) 0%, transparent 35%);
+  background: linear-gradient(90deg, rgba(8, 6, 5, 0.92) 0%, rgba(8, 6, 5, 0.65) 45%, rgba(8, 6, 5, 0.25) 75%, rgba(8, 6, 5, 0.8) 100%),
+              linear-gradient(0deg, rgba(8, 6, 5, 0.95) 0%, transparent 35%);
   pointer-events: none;
-  z-index: 8;
 }
 
 .video-scanline-fx {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.4) 100%);
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.45) 100%);
   pointer-events: none;
-  z-index: 9;
 }
 
 /* ==========================================================================
@@ -1113,33 +1079,17 @@ html, body {
   }
 
   .cinema-video-element {
-    object-position: center 32%;
-    filter: contrast(1.18) brightness(1.14) saturate(1.22);
+    object-position: center;
+    filter: none;
   }
 
   .video-overlay-gradient {
-    /* Crystal clear central window so the falling noodles & saffron glow shine through */
     background: linear-gradient(180deg, 
-      rgba(8, 6, 5, 0.75) 0%, 
-      rgba(8, 6, 5, 0.1) 22%, 
-      rgba(8, 6, 5, 0.05) 55%, 
-      rgba(8, 6, 5, 0.65) 82%, 
-      rgba(8, 6, 5, 0.95) 100%
-    ) !important;
-  }
-
-  .video-golden-highlight {
-    top: 38% !important;
-    left: 50% !important;
-    width: 440px !important;
-    height: 440px !important;
-    background: radial-gradient(circle, rgba(243, 198, 35, 0.5) 0%, rgba(212, 163, 89, 0.3) 40%, transparent 75%) !important;
-    filter: blur(38px) !important;
-    opacity: 1 !important;
-  }
-
-  .video-center-spotlight {
-    background: radial-gradient(circle at 50% 38%, rgba(243, 198, 35, 0.28) 0%, transparent 65%) !important;
+      rgba(8, 6, 5, 0.72) 0%, 
+      rgba(8, 6, 5, 0.25) 35%, 
+      rgba(8, 6, 5, 0.2) 65%, 
+      rgba(8, 6, 5, 0.88) 100%
+    );
   }
 
   .hero-editorial-overlay {
@@ -1200,33 +1150,17 @@ html, body {
   }
 
   .cinema-video-element {
-    object-position: center 30% !important;
-    filter: contrast(1.2) brightness(1.15) saturate(1.25) !important;
+    object-position: center !important;
+    filter: none !important;
   }
 
   .video-overlay-gradient {
-    /* Maximum background visibility on mobile screens */
     background: linear-gradient(180deg, 
-      rgba(8, 6, 5, 0.72) 0%, 
-      rgba(8, 6, 5, 0.06) 20%, 
-      rgba(8, 6, 5, 0.04) 52%, 
-      rgba(8, 6, 5, 0.68) 80%, 
-      rgba(8, 6, 5, 0.95) 100%
+      rgba(8, 6, 5, 0.68) 0%, 
+      rgba(8, 6, 5, 0.22) 30%, 
+      rgba(8, 6, 5, 0.2) 65%, 
+      rgba(8, 6, 5, 0.88) 100%
     ) !important;
-  }
-
-  .video-golden-highlight {
-    top: 35% !important;
-    left: 50% !important;
-    width: 420px !important;
-    height: 420px !important;
-    background: radial-gradient(circle, rgba(243, 198, 35, 0.55) 0%, rgba(212, 163, 89, 0.32) 40%, transparent 75%) !important;
-    filter: blur(35px) !important;
-    opacity: 1 !important;
-  }
-
-  .video-center-spotlight {
-    background: radial-gradient(circle at 50% 35%, rgba(243, 198, 35, 0.3) 0%, transparent 65%) !important;
   }
 
   .aura-header {
