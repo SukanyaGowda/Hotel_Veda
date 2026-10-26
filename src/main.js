@@ -9,44 +9,29 @@
 // ==========================================================================
 class DiningAmbienceEngine {
   constructor() {
-    const audioPath = new URL('/audio/hotel_veda_ambient.mp3', import.meta.url).href;
-    this.audio = new Audio(audioPath);
-    this.audio.loop = true;
-    this.audio.preload = 'auto';
-    this.targetVolume = 0.5;
-    this.fadeInterval = null;
+    this.audio = document.getElementById('ambientAudio');
+    if (!this.audio) {
+      this.audio = new Audio('./audio/hotel_veda_ambient.mp3');
+      this.audio.loop = true;
+      this.audio.preload = 'auto';
+    }
+    this.audio.volume = 0.55;
     this.isPlaying = false;
     this.synthCtx = null;
-
-    // Listen for end/error fallbacks
-    this.audio.addEventListener('error', (e) => {
-      console.warn('Audio element error, will use synth fallback if needed:', e);
-    });
   }
 
   playMusic() {
-    if (this.fadeInterval) clearInterval(this.fadeInterval);
-    this.audio.volume = 0;
-    
+    // Immediately set full audible volume so music starts instantly without delay
+    this.audio.volume = 0.55;
     const playPromise = this.audio.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
           this.isPlaying = true;
-          // Smooth elegant volume fade in
-          let vol = 0;
-          this.fadeInterval = setInterval(() => {
-            vol = Math.min(this.targetVolume, vol + 0.04);
-            this.audio.volume = vol;
-            if (vol >= this.targetVolume) {
-              clearInterval(this.fadeInterval);
-              this.fadeInterval = null;
-            }
-          }, 50);
           this.updateSoundUI(true);
         })
         .catch((err) => {
-          console.warn('Autoplay prevented by browser, waiting for user interaction:', err);
+          console.warn('Playback error:', err);
           this.isPlaying = false;
           this.updateSoundUI(false);
         });
@@ -54,23 +39,16 @@ class DiningAmbienceEngine {
   }
 
   pauseMusic() {
-    if (this.fadeInterval) clearInterval(this.fadeInterval);
-    let vol = this.audio.volume;
-    this.fadeInterval = setInterval(() => {
-      vol = Math.max(0, vol - 0.08);
-      this.audio.volume = vol;
-      if (vol <= 0.02) {
-        clearInterval(this.fadeInterval);
-        this.fadeInterval = null;
-        this.audio.pause();
-        this.isPlaying = false;
-        this.updateSoundUI(false);
-      }
-    }, 40);
+    this.audio.pause();
+    this.isPlaying = false;
+    this.updateSoundUI(false);
   }
 
   toggle() {
-    if (this.isPlaying) {
+    if (!this.audio) {
+      this.audio = document.getElementById('ambientAudio');
+    }
+    if (this.isPlaying && !this.audio.paused) {
       this.pauseMusic();
       return false;
     } else {
